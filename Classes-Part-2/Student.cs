@@ -28,16 +28,44 @@ namespace Classes_Part_2
         }
 
         // TODO: Complete the AddGrade method.
-        public void AddGrade(int courseCredits, double grade)
+        public double AddGrade(int courseCredits, double grade)
         {
-            // Update the appropriate properties: NumberOfCredits, Gpa
+            double TQS = NumberOfCredits * Gpa;
+            TQS += courseCredits * grade;
+            NumberOfCredits += courseCredits;
+            Gpa = TQS / NumberOfCredits;
+            return Gpa;
         }
 
         //TODO: Complete the GetGradeLevel method here:
-        public string GetGradeLevel(int credits)
+        public string GetGradeLevel()
         {
-            // Determine the grade level of the student based on NumberOfCredits
-            return "grade level tbd";
+            if (NumberOfCredits <= 29)
+            {
+                return "Freshmen";
+            }
+            else if (NumberOfCredits <= 59)
+            {
+                return "Sophomore";
+            }
+            else if (NumberOfCredits <= 89)
+            {
+                return "Junior";
+            }
+            else
+            {
+                return "Senior";
+            }
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override string? ToString()
+        {
+            return Name + " (Credits: " + NumberOfCredits + ", GPA: " + Gpa + ")";
         }
 
         // TODO: Add your custom 'ToString' method here. Make sure it returns a well-formatted string rather

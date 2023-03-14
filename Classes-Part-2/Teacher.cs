@@ -15,6 +15,16 @@ namespace Classes_Part_2
             Subject = subject;
             YearsTeaching = yearsTeaching;
         }
+
+        public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override string? ToString()
+        {
+            return FirstName;
+        }
     }
 }
 
